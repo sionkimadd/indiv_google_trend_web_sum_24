@@ -1,0 +1,88 @@
+body {
+    font-family: 'Open Sans', 'Arial'; 
+    margin: 0;
+    background-color: #000; 
+    color: #fff; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    text-align: center;
+}
+
+h1 {
+    margin-bottom: 15px;
+}
+
+h2 {
+    margin-top: 15px;
+}
+
+label {
+    font-weight: normal;
+}
+
+input[type="text"], select {
+    
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+    
+    padding: 5px;
+    border: 1px solid #fff;
+    border-radius: 20px;
+    margin-bottom: 5px;
+    background-color: #000; 
+    color: #fff; 
+    width: 150px;
+    font-size: 12px;
+    cursor: pointer;
+    
+}
+
+button {
+    background-color: #000; 
+    color: #fff; 
+    border: 1px solid #fff; 
+    border-radius: 20px;
+    padding: 15px 15px;
+    cursor: pointer;
+}
+
+button:disabled {
+    background-color: #000; 
+    color: #000; 
+    border: 1px solid #000; 
+    cursor: not-allowed; 
+}
+
+button:hover {
+    background-color: #fff;
+    color: #000;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+ul li {
+    margin: 1px 10;
+}
+
+ul li a {
+    color: #fff; 
+    text-decoration: none;
+}
+
+ul li a:hover {
+    text-decoration: underline;
+}
+
+#sentiment_plot {
+    display: block;
+    margin: 10px auto;
+    max-width: 100%;
+    border: 1px solid #fff;
+}

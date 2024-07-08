@@ -1,23 +1,30 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Trend of World</title>
+    <title>Trend of Word</title>
+    <link rel="stylesheet" type="text/css" href="/static/css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;1,300&display=swap" rel="stylesheet">
 </head>
 <body>
-    <h1>Trend of World</h1>
+    <h1>Trend of Word</h1>
 
     <!-- Label for search word field -->
-    <label for = "search_word">Search Word:</label>
+    <label for = "search_word">Search Word</label>
     <!-- Field for search word -->
     <input type = "text" id = "search_word"><br>
 
     <!-- Label for days_back field -->
-    <label for = "days_back">Days Back:</label>
+    <label for = "days_back">Days Back</label>
     <!-- Field for days_back -->
-    <input type = "text" id = "days_back"><br>
+    <!-- <input type = "number" id = "days_back" min = "1"><br> -->
+
+    <!-- Select an element for days back -->
+    <select id="days_back"></select><br>
 
     <!-- Claick button for conductAll() function  -->
-    <button onclick = "conductAll()">All</button>
+    <button onclick = "handleClick(this)">All</button>
 
     <!-- Head for list of Generated Files -->
     <h2>Generated Files</h2>
@@ -30,13 +37,49 @@
     <img id = "sentiment_plot" style = "display: none;">
 
     <script>
+
+        // Bring days_back element
+        var select = document.getElementById("days_back");
+
+        // Iterate from 1 to 7 for add each number
+        for (var i = 1; i <= 7; i++) {
+
+            // Create option
+            var option = document.createElement("option"); 
+            
+            // Set value of option
+            option.value = i; 
+
+            // Set text displayed in option
+            option.text = i; 
+
+            // Append created option as a child
+            select.appendChild(option); 
+        }
+
+        // Handle All button click
+        function handleClick(button) {
+          
+            // Disable clicked button
+            button.disabled = true;
+
+            // Conduct conductAll function
+            conductAll();
+
+            // Can click after 10s
+            setTimeout(function() {
+                button.disabled = false;
+            }, 10000);
+        }
+
+        // Main task
         function conductAll() {
             
             // Bring search_word and days_back value
             const search_word = document.getElementById('search_word').value;
             const days_back = document.getElementById('days_back').value;
 
-            // Send POST tp app.py's /conduct_all
+            // Send POST to app.py's /conduct_all
             fetch('/conduct_all', {
                 
                 // HTTP method set POST

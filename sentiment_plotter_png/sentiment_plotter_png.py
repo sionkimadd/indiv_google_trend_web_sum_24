@@ -67,7 +67,7 @@ class SentimentPlotter:
         plt.xticks(rotation=90, fontsize=7)
         
         # Ensure the static directory exists
-        static_dir = 'google_trend_program/static'
+        static_dir = 'static/'
         if not os.path.exists(static_dir):
             os.makedirs(static_dir)
         

@@ -45,7 +45,7 @@ class SentimentPlotter:
         plt.plot(self.filtered_data['datetime'], p(x_numeric), "b-")
 
         # Set title
-        plt.title(f'Trend of {search_word}', fontsize=14)
+        plt.title(f'Archive of {search_word}', fontsize=14)
 
         # Set x-axis (empty)
         plt.xlabel('')
